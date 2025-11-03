@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<style type="text/css">
+		#sun{
+			width: 200px;
+			height: 200px;
+			background-color: orange;
+			border-radius: 50%;
+
+			position: relative;
+			top: 1000px;
+
+			animation-name: sunrise;
+			animation-duration: 10s;
+			animation-iteration-count: 100;
+		}
+
+		body{
+			animation-name: sky;
+			animation-duration: 10s;
+			animation-iteration-count: infinite;
+			font-size: 60px;
+			color: midnightblue;
+			margin: 0;
+		}
+
+		@keyframes sky{
+		0%{ 
+			background-color: midnightblue; 
+			
+		}
+		50%{
+			background-color: skyblue;
+				
+		}
+
+		100%{
+			background-color: midnightblue;
+				
+		}
+
+
+		}
+
+
+		@keyframes sunrise{
+		0%{ 
+			top: 1000px 
+			
+		}
+
+		50%{
+			top: 0px ;	
+		}
+			
+			
+
+		100%{
+			top: 1000px;	
+		}
+			
+		}
+
+		#grass{
+			width: 1500px;
+			height: 700px;
+			background-color: green;
+			position: relative;
+			top: 400px;
+			margin: 0;
+
+
+
+		}
+
+		
+
+
+
+
+
+
+
+	</style>
+</head>
+<body>
+	<audio id="YouAreMySunshine" loop>
+		<source src="ChristinaPerri~YouAreMySunshine(lyrics).mp3" type="audio/mp3">
+	</audio>
+	<script>
+		document.body.addEventListener('click', function () {
+			const audio = document.getElementById("YouAreMySunshine");
+			audio.play().then(() => {
+				console.log("Playback started successfully.");
+			}).catch(err => {
+				console.error("Playback failed:", err);
+			});
+		}, { once: true });
+	</script>
+<center>
+	Click For Song
+<div id="sun"></div>
+</center>
+<div id="grass"></div>
+<div id="house"></div>
+</body>
+</html>
