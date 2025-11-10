@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		#gif{
+			height: 100px;
+			width: 100px;
+			background-image: url(https://assets-v2.lottiefiles.com/a/6f49323a-116b-11ee-a5c5-63052805b7d9/Yz0qCgOUhA.gif);
+			background-size: cover;
+			background-repeat: no-repeat;
+			position: absolute;
+		}
+
+	</style>
+</head>
+<body>
+	<center>CLICK ANY KEY TO MAKE THE WHEEL SPIN</center>
+<div id="gif"></div>
+<script type="text/javascript">
+	gif.style.left="0px"
+	document.addEventListener("keypress", function(){
+		console.log("wheels rolling")
+gif.style.left= parseInt(gif.style.left) +5 +"px"
+	})
+</script>
+</body>
+</html>
