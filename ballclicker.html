@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style type="text/css">
+		#bkb{
+			width: 500px;
+			height: 500px;
+			background-image: url(https://www.wilson.com/en-us/media/catalog/product/article_images/WTB7300EC_/WTB7300EC__65dd98ff6904b76027bf9480d004f7f6.png);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		#text{
+			width: 100px;
+			height: 100px;
+			font-size: 50px;
+			border: 1px solid black;
+		}
+	</style>
+
+</head>
+
+<body>
+
+<center>
+Click the ball to run up your score
+<p>Score:
+<div id="text"></div></p>
+<div id="bkb"></div>
+</center>
+
+<script type="text/javascript">
+	let score=0
+
+	bkb.addEventListener("click",function(){
+		score=score+1
+		console.log(score)
+		text.innerText=score
+
+		if(score==3){
+			alert("keep going!")
+		}
+	})
+</script>
+
+</body>
+
+</html>

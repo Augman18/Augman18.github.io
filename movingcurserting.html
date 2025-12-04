@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		
+		#beansbag{
+			height: 200px;
+			width: 200px;
+			background-image: url(https://pureintentionscoffee.com/cdn/shop/files/5LBBAG_ECOMM_2.jpg?v=1688141790);
+			position: absolute;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+
+		#beans{
+			height: 200px;
+			width: 200px;
+			background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrrUwapCwq7KrKXrLP6DgXgMHFm_10d3TO1g&s);
+			position: absolute;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+
+		#groundbeans{
+			height: 200px;
+			width: 200px;
+			background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrrUwapCwq7KrKXrLP6DgXgMHFm_10d3TO1g&s);
+			position: absolute;
+			background-size: cover;
+			background-repeat: no-repeat;
+			}
+		#coffeemachine{
+			height: 200px;
+			width: 200px;
+			background-image: url(https://coffeebros.com/cdn/shop/files/best-beginner-espresso-machine-breville-barista-express.jpg?v=1696603466);
+			position: absolute;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+		#cupofcoffee{
+			height: 200px;
+			width: 200px;
+			background-image: url(https://media.istockphoto.com/id/1143290013/photo/coffee-cup-isolated.jpg?s=612x612&w=0&k=20&c=fEsmHH_kDh-vPxukZuaMs54D0kg2BTEDgS8lnWu8bBs=);
+			position: absolute;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+		#spillingcup{
+			height: 200px;
+			width: 200px;
+			background-image: url(https://media.istockphoto.com/id/1278949818/photo/a-cup-of-coffee-with-splash-isolated-on-a-white.jpg?s=612x612&w=0&k=20&c=t7zl7rSGQ_GoZI7LXIj-JjOt3zvsat3xPt1IT90D3pE=);
+			position: absolute;
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+
+	</style>
+</head>
+	<body>
+		<div id="beansbag"></div>
+		<div id="beans"></div>
+		<div id="groundbeans"></div>
+		<div id="coffeemachine"></div>
+		<div id="cupofcoffee"></div>
+		<div id="spillingcup"></div>
+
+		<script type="text/javascript">
+			document.addEventListener("mousemove", function(event){
+			console.log(event.clientX, event.clientY)
+			beansbag.style.left=event.clientX + "px"
+			beansbag.style.top=event.clientY + "px"
+		})
+			beans.addEventListener("click", function(){
+				beansbag.style.backgroundImage=beans
+			})
+			
+		</script>
+
+	</body>
+</html>
