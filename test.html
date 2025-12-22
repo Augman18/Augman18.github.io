@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		body{
+			margin: 0;
+			font-size: 60px;
+			color: midnightblue;
+			animation: sky 10s infinite;
+		}
+
+		#sun{
+			width: 200px;
+			height: 200px;
+			background-color: orange;
+			border-radius: 50%;
+			position: relative;
+			top: 1000px;
+			animation: sunrise 10s infinite;
+		}
+
+		#grass{
+			width: 100%;
+			height: 700px;
+			background-color: green;
+			position: relative;
+			top: 400px;
+		}
+
+		@keyframes sky{
+			0%{ background-color: midnightblue; }
+			50%{ background-color: skyblue; }
+			100%{ background-color: midnightblue; }
+		}
+
+		@keyframes sunrise{
+			0%{ top: 1000px; }
+			50%{ top: 0px; }
+			100%{ top: 1000px; }
+		}
+	</style>
+</head>
+
+<body>
+
+	<center>
+		Click anywhere to start the song
+		<div id="sun"></div>
+	</center>
+
+	<div id="grass"></div>
+
+	<!-- AUDIO -->
+	<audio id="song" src="sunshine.mp3" loop></audio>
+
+	<script>
+		document.body.addEventListener("click", function () {
+			const song = document.getElementById("song");
+			song.play();
+			console.log("Song playing");
+		}, { once: true });
+	</script>
+
+</body>
+</html>
