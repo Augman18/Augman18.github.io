@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		#Location{
+			font-size: 80px;
+		}
+
+		#golfball{
+			height: 200px;
+			width: 200px;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-image: url(https://img.freepik.com/premium-photo/golf-ball-isolated-white-background_167862-3674.jpg)
+
+		}
+
+		#courseName {
+			font-size: 80px;
+		}
+
+		#courseDescription{
+			font-size: 80px;
+		}
+	</style>
+</head>
+<body>
+<center>
+	<div id="Location"> We should go golfing at...</div>
+	<div id="golfball"></div>
+	<div id="courseName"></div>
+	<img id="courseImage" width="600">
+<div id="courseDescription"></div>
+</center>
+<script type="text/javascript">
+
+
+	
+let courses = 
+	[
+	{
+	name: "Van Cortlandt Park",
+	image: "https://cdn.allsquaregolf.com/pictures/pictures/000/055/881/large/van_cortlandt_park_golf_course_cover_picture.jpg",
+	description: "NYC’s oldest public golf course. We have played at twice so far."
+	},
+	{
+	name: "Marine Park",
+	image: "https://golf-pass.brightspotcdn.com/dims4/default/416134b/2147483647/strip/true/crop/715x461+219+0/resize/930x600!/format/webp/quality/90/?url=https%3A%2F%2Fgolf-pass-brightspot.s3.amazonaws.com%2Ffa%2F00%2F72b47e1dae052312516fa42258cc%2F12904.jpg",
+	description: "Wide open course near Jamaica Bay."
+	},
+	{
+	name: "Dyker Beach",
+	image: "https://www.dykerbeachgc.com/wp-content/uploads/sites/12/2024/08/dyker-beach-golf-course-1024x592.jpg",
+	description: "Popular Brooklyn course with great views."
+	},
+	{name:"Admiral's Cove",
+	image:"https://golf-pass.brightspotcdn.com/ff/8f/f1a3ebded71af676d995a62b4e08/91113.jpg",
+	description:"Hard, but beautiful golf course in Jupiter Florida"}, 
+	
+	{name:"The Bear's Club",
+	image:"https://www.thebearsclub.com/images/dynamic/getImage.gif?ID=100003942",
+	description:"Jack Nickelaus' private golf course"}, 
+	
+	{name:"Forest Park",
+	image:"https://lh3.googleusercontent.com/gps-cs-s/AG0ilSw_BH97MbR3YUaHqFWwkG2bv92gV53MLU0SzaZbvQ7LUy5S3yx1_YKxpyOqj5eC9HGYbtkObvyKMMRMWfHqPkvZzwYQcWcdsX6rWNf2cWjt6-9ZbGDJjROY6azmoJZyBbnspYh96edZ7UoT=s1360-w1360-h1020-rw",
+	description:"A golf course with tree-lined fairways and elevated greens in Woodhaven New York"}, 
+	{name:"Douglaston Golf Course",
+	image:"https://www.golfnyc.com/wp-content/uploads/sites/9076/2025/09/DJI_20250602070859_0127_D_69b940.jpg?w=1920&h=700&crop=1",
+	description:"A popular, public 18-hole municipal course known for its elevated position offering fantastic views of the Manhattan skyline"},
+	{name:"Bally's Golf Links",
+	image:"https://worldgolfer.blog/wp-content/uploads/2017/11/img_6016.jpeg",
+	description:"Beautiful course in the Bronx that has great holes and stunning views"}, 
+	
+	{name:"Chelsea Piers (for practice)",
+	image:"https://golfrange.org/wp-content/uploads/2020/02/Chelsea-Piers-1.jpg",
+	description:"Nice place to practice both your driving and iron work"}, 
+	
+	{name:"Mosholu Golf Course",
+	image:"https://golfingmagazine.net/wp-content/uploads/2025/04/2025_Mosholu_aerial_Bronx_NY.jpg",
+	description:"A historic, well-maintained 9-hole, par-32 public course in the Bronx"}, 
+	
+	{name:"Poxabogue Golf Course (also driving range)",
+	image:"https://www.poxgolf.com/wp-content/uploads/sites/5720/2016/03/home_slider_04.jpg",
+	description:"A nice 9 hole course with a large driving range, chipping, and putting station. Also offers private lessons."}
+];
+
+let golfBall = document.getElementById("golfball");
+let courseName = document.getElementById("courseName");
+let courseImage = document.getElementById("courseImage");
+let courseDescription = document.getElementById("courseDescription");
+
+	golfBall.addEventListener("click", function(){
+	let randomNumber = Math.floor(Math.random() * courses.length);
+	let course = courses[randomNumber];
+
+	courseName.innerText = course.name;
+	courseImage.src = course.image;
+	courseDescription.innerText = course.description;
+});
+
+</script>
+
+</body>
+</html>
