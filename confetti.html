@@ -3,10 +3,25 @@
 	<style type="text/css">
 		.confetti{
 			width: 10px;
-			height: 20px;
+			height: 22px;
 			position: absolute;
 			transition: .5s;
+			animation-name: swing;
+			animation-duration: .5s;
+			animation-iteration-count: infinite;
+			animation-direction: alternate;
+			animation-timing-function: ease-in-out;
 		}
+
+	@keyframes swing {
+		from{
+			transform: rotate(-45deg);
+		}
+
+		to{
+			transform: rotate(45deg);
+		}
+	}	
 
 
 	</style>
@@ -32,13 +47,13 @@
 	square.style.transform = "rotate("+rotation+ "deg)"
 
 	function fall(){
-		falling=falling+10
+		falling=falling+1
 		square.style.top=parseInt(square.style.top)+falling+"px"
 		if (falling >= 100){
 			falling = 0
 		}
 	}
-	setInterval(fall, 400)
+	setInterval(fall, 100)
 }
 
 setInterval(makeConfetti, 20)
