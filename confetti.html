@@ -15,11 +15,21 @@
 
 	@keyframes swing {
 		from{
-			transform: rotate(-45deg);
+			transform: rotate(var(--startRot));
 		}
 
 		to{
-			transform: rotate(45deg);
+			transform: rotate(var(--endRot));
+		}
+	}	
+
+	@keyframes swing3d {
+		from{
+			transform: rotateZ(-25deg) rotateY(-180deg);
+		}
+
+		to{
+			transform: rotateZ(25deg) rotateY(180deg);
 		}
 	}	
 
@@ -36,24 +46,30 @@
 		"div")
 	square.classList.add("confetti")
 	document.body.appendChild(square)
+	
 	let r=Math.round(Math.random()*255)
 	let g=Math.round(Math.random()*255)
 	let b=Math.round(Math.random()*255)
 	let rotation = Math.random() * 360
+	let startRot = Math.random() * -45 + "deg"
+	let endRot = Math.random() * 45 + "deg"
+	
 	square.style.backgroundColor="rgb("+r+","+g+","+b+")"
 
 	square.style.left=Math.random()*2000+"px"
 	square.style.top=Math.random()*100+"px"
 	square.style.transform = "rotate("+rotation+ "deg)"
-
+	square.style.setProperty("--startRot", startRot)
+	square.style.setProperty("--endRot", endRot)
+	
 	function fall(){
-		falling=falling+1
+		falling=falling+20
 		square.style.top=parseInt(square.style.top)+falling+"px"
 		if (falling >= 100){
 			falling = 0
 		}
 	}
-	setInterval(fall, 100)
+	setInterval(fall, 75)
 }
 
 setInterval(makeConfetti, 20)
