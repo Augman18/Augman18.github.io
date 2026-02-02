@@ -34,16 +34,24 @@
 		}
 	}	
 
+	#btn{
+		top: 50%;
+		width: 70px;
+		height: 70px;
+	}
+
 
 	</style>
 	
 </head>
 <body>
 
+	<center><button id="btn">Drop Confetti</button></center>
+
 <script type="text/javascript">
+	
 	let falling =0
-	let my_boys = ["augy", "kaya", "faiz", "gideon", "august"]
-	console.log(my_boys.length)
+	let dropconfettiBtn = document.getElementById("btn")
 	function makeConfetti(){
 	let square= document.createElement(
 		"div")
@@ -75,7 +83,14 @@
 	setInterval(fall, 75)
 }
 
+dropconfettiBtn.addEventListener("click", function(){
+	// for(let i = 0; i < 10; i++){
+		
+	// }
 setInterval(makeConfetti, 20)
+})
+
+
 </script>
 
 </body>
