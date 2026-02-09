@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>People List</title>
+    <style>
+    	#train{
+    		display: flex;
+    		gap: 12px;
+    	}
+
+    	.cart{
+    		border: 1px solid black;
+    		min-width: 100px;
+    		height: 80px;
+    		text-align: center;
+    		position: relative;
+    	}
+
+    	.cart:before{
+    		content: "";
+    		width: 30px;
+    		height: 30px;
+    		border: 1px solid black;
+    		display: block;
+    		border-radius: 50%;
+    		position: absolute;
+    		bottom: -15px;
+    		left: 10px;
+    		background-color: white;
+
+    	}
+    	 .cart:after{
+    		content: "";
+    		width: 30px;
+    		height: 30px;
+    		border: 1px solid black;
+    		display: block;
+    		border-radius: 50%;
+    		position: absolute;
+    		bottom: -15px;
+    		right: 10px;
+    		background-color: white;
+    	}
+    </style>
+</head>
+<body>
+    <input type="text" id="person" name="person">
+    <button id="add-person">Add Person</button>
+    <button id="remove-person">Remove Person</button>
+    <div id="train">
+    <div class="cart">faiz</div>
+    <div class="cart">august</div>
+    <div class="cart">kaya</div>
+    </div>
+
+
+
+<script>
+    let people = ["faiz", "august", "kaya", "gideon", "jason", "whit", "augy", "chae", "chole"];
+    let train = document.getElementById("train")
+    
+    function makeTrain(){
+        train.innerHTML = ""
+    for(let i=0; i < people.length; i++){
+        console.log(people[i])
+        
+    let cart= document.createElement("div")
+    cart.textContent = people[i]
+    cart.classList.add("cart")
+    train.appendChild(cart)
+    }
+}
+makeTrain()
+
+    let addPersonBtn = document.getElementById("add-person");
+    addPersonBtn.addEventListener("click", function() {
+        let personInput = document.getElementById("person");
+        
+        if (personInput.value.trim() !== "") {
+            people.push(personInput.value);
+            makeTrain()
+            console.log("Added! Current list:", people);
+            personInput.value = ""; // Clear input after adding
+
+        }
+    });
+
+    let removePersonBtn = document.getElementById("remove-person");
+    removePersonBtn.addEventListener("click", function() {
+        people.pop();
+        // Changed "remove" to "people"
+        console.log("Removed! Current list:", people);
+        makeTrain()
+    });
+</script>
+
+</body>
+</html>
