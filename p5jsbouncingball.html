@@ -10,12 +10,12 @@
 <script>
 let xpos
 let ypos
-let xspeed = 5
-let yspeed = 8
+let xspeed = 6
+let yspeed = 9
 let fillColor = "blue"
 let d = 50
 function setup() {
-createCanvas(800,800)
+createCanvas(700,700)
 xpos = width/2
 ypos = height/2
 }
@@ -31,26 +31,33 @@ ypos = height/2
         yspeed *= -1
     }
 
-    
+    changeBallColor("green","blue")
 
-    if(xpos > width/2 && ypos < height/2){
-        fillColor = "green"
-    }
-    else if(xpos > width/2 && ypos > height/2){
-        fillColor = "blue"
-    }
-     else if(xpos < width/2 && ypos < height/2){
-        fillColor = "yellow"
-    }
-    else{
-        fillColor = "red"
-    }
     xpos += xspeed
     ypos += yspeed
     fill(fillColor)
     circle(xpos, ypos, d)
     }
 
+    function changeBallColor(topRightColor,bottomRightColor){
+        if(xpos > width/2 && ypos < height/2){
+            //top right
+        fillColor = "green"
+    }
+    else if(xpos > width/2 && ypos > height/2){
+        //bottomright
+        fillColor = "blue"
+    }
+     else if(xpos < width/2 && ypos < height/2){
+        //top left
+        fillColor = "yellow"
+    }
+    else{
+        //bottom left
+        fillColor = "red"
+    }
+
+    }
 
 </script>
 
