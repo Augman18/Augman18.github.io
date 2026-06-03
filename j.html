@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Comp-Sci Jeopardy</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+<style>
+body{
+    background:black;
+    font-family:Anton,sans-serif;
+    text-align:center;
+    color:white;
+}
+
+h1{
+    background:blue;
+    color:yellow;
+    padding:20px;
+    margin:0;
+    font-size:50px;
+}
+
+#score{
+    font-size:35px;
+    margin:20px;
+}
+
+.board{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    width:95%;
+    margin:auto;
+}
+
+.category{
+    background:blue;
+    color:yellow;
+    padding:20px;
+    font-size:30px;
+}
+
+.clue{
+    background:blue;
+    color:yellow;
+    height:120px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:40px;
+    cursor:pointer;
+}
+
+.clue:hover{
+    background:#0000cc;
+}
+
+.used{
+    background:black;
+    color:black;
+    cursor:default;
+}
+
+#questionBox{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:white;
+    color:black;
+    width:70%;
+    padding:30px;
+    display:none;
+    border-radius:10px;
+}
+
+#question{
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+input{
+    width:80%;
+    padding:10px;
+    font-size:22px;
+}
+
+button{
+    margin-top:15px;
+    padding:10px 20px;
+    font-size:20px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>COMP-SCI JEOPARDY</h1>
+
+<div id="score">Score: $0</div>
+
+<div class="board">
+
+<div class="category">NICHE REFS</div>
+<a href="augywebsitemockup.html"><div class="category">PROJECTS</div></a>
+<div class="category">PEOPLE</div>
+<div class="category">CS ELEMENTS</div>
+
+<div class="clue" onclick="showQuestion(this,200,'THE COLOR KAYA COINED','burlywood')">$200</div>
+<div class="clue" onclick="showQuestion(this,200,'THE PROJECT WHERE A PRESSABLE OPTION REFUSED TO BE PRESSED','bad button')">$200</div>
+<div class="clue" onclick="showQuestion(this,200,'THE MAN WHO HAS BEEN HARD AT WORK ON A PERSONAL PROJECT, YOU MIGHT FORGET HE IS EVEN HERE','jason')">$200</div>
+<div class="clue" onclick="showQuestion(this,200,'THE UPPER SECTION WHERE THE STYLE RESIDES','head')">$200</div>
+
+<div class="clue" onclick="showQuestion(this,400,'THE BURLYEST MAN ALIVE','doug cockle')">$400</div>
+<div class="clue" onclick="showQuestion(this,400,'THE ASSIGNMENT WHERE THE BALL BOUNCES AND RACES WHILE CHANGING COLORS','bouncing ball')">$400</div>
+<div class="clue" onclick="showQuestion(this,400,'SHE ASKS TO LEAVE EARLY. TO WHERE IS SHE IN A HURRY?','chloe')">$400</div>
+<div class="clue" onclick="showQuestion(this,400,'BELOW THE HEAD, THIS AREA IS WHERE THE SCRIPT AND OTHER SECTIONS ARE','body')">$400</div>
+
+<div class="clue" onclick="showQuestion(this,600,'MOLLYS GO TO STAR BASKETBALL PLAYER','jalen brunson')">$600</div>
+<div class="clue" onclick="showQuestion(this,600,'THIS ASSIGNMENT LETS A CIRCLE WANDER ACROSS THE SCREEN','random walker')">$600</div>
+<div class="clue" onclick="showQuestion(this,600,'THIS STAR BASKETBALL PLAYER IS A HUGE FAN OF ONE PIECE','kaya')">$600</div>
+<div class="clue" onclick="showQuestion(this,600,'THE ELEMENT THAT ALLOWS YOU TO REPEAT FUNCTIONS','for loop')">$600</div>
+
+<div class="clue" onclick="showQuestion(this,800,'ON A DAY AFTER BREAK... THE BOYS ALL HAD THE SAME BEEFY BUTTERY MEAL','steak')">$800</div>
+<div class="clue" onclick="showQuestion(this,800,'THESE JOLLY GIFTS WERE PERFECT FOR THE HOLIDAY SEASON','holiday cards')">$800</div>
+<div class="clue" onclick="showQuestion(this,800,'HE SEES PROJECTS BY OTHERS AND GOES THIS SUCKS','august')">$800</div>
+<div class="clue" onclick="showQuestion(this,800,'WHERE ELEMENTS CAN BE LOGGED WHEN INSPECTED','console')">$800</div>
+
+<div class="clue" onclick="showQuestion(this,1000,'THESE PLAYFUL DECORATIONS FALL FROM THE SKY AS YOU CELEBRATE','confetti')">$1000</div>
+<div class="clue" onclick="showQuestion(this,1000,'WHERE PHOTOS CAN BE PRESERVED FOR LATER','gallery')">$1000</div>
+<div class="clue" onclick="showQuestion(this,1000,'THIS CREATOR FREQUENTLY TALKS ABOUT LEBRON AND HIS TRIPS TO FLORIDA','augy')">$1000</div>
+<div class="clue" onclick="showQuestion(this,1000,'THE FEATURE ALLOWS YOU TO PUT MULTIPLE SUBJECTS UNDER ONE SECTION','array')">$1000</div>
+
+</div>
+
+<div id="questionBox">
+    <div id="question"></div>
+
+    <input id="answerInput" placeholder="Type your answer">
+
+    <br>
+
+    <button onclick="checkAnswer()">Submit</button>
+</div>
+
+<script>
+
+let score = 0;
+
+let currentAnswer = "";
+let currentValue = 0;
+let currentBox = null;
+
+function showQuestion(box,value,question,answer){
+
+    if(box.classList.contains("used")) return;
+
+    currentAnswer = answer.toLowerCase();
+    currentValue = value;
+    currentBox = box;
+
+    document.getElementById("question").innerHTML = question;
+    document.getElementById("answerInput").value = "";
+    document.getElementById("questionBox").style.display = "block";
+}
+
+function checkAnswer(){
+
+    let guess =
+    document.getElementById("answerInput")
+    .value
+    .toLowerCase()
+    .trim();
+
+    if(guess.includes(currentAnswer)){
+        alert("Correct!");
+        score += currentValue;
+    }
+    else{
+        alert("Incorrect! Correct answer: " + currentAnswer);
+        score -= currentValue;
+    }
+
+    document.getElementById("score").innerHTML =
+    "Score: $" + score;
+
+    currentBox.classList.add("used");
+    currentBox.innerHTML = "";
+
+    document.getElementById("questionBox").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>
